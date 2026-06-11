@@ -1,97 +1,101 @@
-/* LOADER */
-window.onload = () => {
-  document.getElementById("loader").style.display = "none";
-};
+// 🎂 Birthday Countdown
+const countdownEl = document.getElementById("countdown");
 
-/* AUTO MUSIC WITH FADE */
-const tracks = [
-  "music/if-we-have-each-other.mp3",
-  "music/until-i-found-you.mp3",
-  "music/photograph.mp3"
-];
+// Set target birthday (9 days from now)
+const birthdayDate = new Date();
+birthdayDate.setDate(birthdayDate.getDate() + 9);
 
-let index = 0;
-let audio = new Audio(tracks[index]);
-audio.volume = 0;
+function updateCountdown() {
+  const now = new Date();
+  const diff = birthdayDate - now;
 
-function fadeIn() {
-  let v = 0;
-  const i = setInterval(() => {
-    if (v >= 0.6) clearInterval(i);
-    audio.volume = v;
-    v += 0.02;
-  }, 100);
+  if (diff <= 0) {
+    countdownEl.innerText = "🎉 Happy Birthday My Love! 🎉";
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  countdownEl.innerText = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds To Go ❤️`;
 }
+setInterval(updateCountdown, 1000);
 
-function fadeOut(next) {
-  const i = setInterval(() => {
-    if (audio.volume <= 0) {
-      clearInterval(i);
-      audio.src = tracks[next];
-      audio.play();
-      fadeIn();
-    }
-    audio.volume -= 0.02;
-  }, 100);
-}
+// 🎁 Surprise Gift Box
+const giftBox = document.getElementById("giftBox");
+const giftMessage = document.getElementById("giftMessage");
 
-audio.addEventListener("ended", () => {
-  index = (index + 1) % tracks.length;
-  fadeOut(index);
+giftBox.addEventListener("click", () => {
+  giftBox.style.transform = "scale(0)";
+  setTimeout(() => {
+    giftMessage.innerHTML = "A special message just for you ❤️";
+    giftMessage.style.opacity = 1;
+  }, 500);
 });
 
-/* AUTO START ON FIRST CLICK */
-document.body.addEventListener("click", () => {
-  if (audio.paused) {
-    audio.play();
-    fadeIn();
+// ❤️ Interactive Heart
+const bigHeart = document.getElementById("bigHeart");
+const specialMessage = document.getElementById("specialMessage");
+
+bigHeart.addEventListener("click", () => {
+  specialMessage.innerHTML = "You Are The Best Thing That Ever Happened To Me ❤️";
+  // Confetti effect
+  for (let i = 0; i < 30; i++) {
+    createConfetti();
   }
-}, { once: true });
+});
 
-document.getElementById("musicToggle").onclick = () => {
-  audio.paused ? audio.play() : audio.pause();
-};
+function createConfetti() {
+  const confetti = document.createElement("div");
+  confetti.classList.add("confetti");
+  confetti.style.left = Math.random() * window.innerWidth + "px";
+  confetti.style.top = "-10px";
+  confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+  document.body.appendChild(confetti);
 
-/* TYPED TEXT */
-const text = "Not just love. A universe.";
-let i = 0;
-setInterval(() => {
-  if (i < text.length) {
-    document.querySelector(".typed").innerHTML += text[i++];
+  let fall = setInterval(() => {
+    confetti.style.top = parseInt(confetti.style.top) + 5 + "px";
+    if (parseInt(confetti.style.top) > window.innerHeight) {
+      confetti.remove();
+      clearInterval(fall);
+    }
+  }, 50);
+}
+
+// ✍️ Love Letter Typing Effect
+const letterEl = document.getElementById("letter");
+const loveText = "My dearest love, every moment with you feels like magic. You are my dream, my heart, my everything. Happy Birthday ❤️";
+
+let index = 0;
+function typeLetter() {
+  if (index < loveText.length) {
+    letterEl.innerHTML += loveText.charAt(index);
+    index++;
+    setTimeout(typeLetter, 80);
   }
-}, 120);
-
-/* PARTICLES */
-const canvas = document.getElementById("bg");
-const ctx = canvas.getContext("2d");
-
-function resize() {
-  canvas.width = innerWidth;
-  canvas.height = innerHeight;
 }
-resize();
-window.onresize = resize;
+typeLetter();
 
-const particles = Array.from({ length: 100 }, () => ({
-  x: Math.random() * canvas.width,
-  y: Math.random() * canvas.height,
-  r: Math.random() * 2,
-  dx: Math.random() - 0.5,
-  dy: Math.random() - 0.5
-}));
-
-function animate() {
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  particles.forEach(p => {
-    p.x += p.dx;
-    p.y += p.dy;
-    if (p.x<0||p.x>canvas.width) p.dx*=-1;
-    if (p.y<0||p.y>canvas.height) p.dy*=-1;
-    ctx.fillStyle = "rgba(255,255,255,0.25)";
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fill();
-  });
-  requestAnimationFrame(animate);
+// 🎆 Final Ending Fireworks
+function showFinal() {
+  const finalMessage = document.getElementById("finalMessage");
+  finalMessage.innerHTML = "<h2>Forever & Always ❤️</h2>";
+  for (let i = 0; i < 50; i++) {
+    createFirework();
+  }
 }
-animate();
+
+function createFirework() {
+  const firework = document.createElement("div");
+  firework.classList.add("firework");
+  firework.style.left = Math.random() * window.innerWidth + "px";
+  firework.style.top = Math.random() * window.innerHeight + "px";
+  firework.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+  document.body.appendChild(firework);
+
+  setTimeout(() => {
+    firework.remove();
+  }, 1500);
+}
