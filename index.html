@@ -1,61 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Story</title>
-
-<link rel="stylesheet" href="styles.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday My Love ❤️</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cormorant+Garamond:wght@400;700&family=Poppins:wght@400;600&family=Montserrat:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <!-- CSS file link -->
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <!-- Hero Section -->
+  <section class="section hero">
+    <div class="hero-bg"></div>
+    <h1>Every Birthday Is Special, But Yours Is My Favorite</h1>
+    <h2>Happy Birthday My Love ❤️</h2>
+    <div class="countdown" id="countdown"></div>
+    <button class="btn" onclick="document.getElementById('timeline').scrollIntoView({behavior:'smooth'})">Begin Our Journey</button>
+  </section>
 
-<div id="loader">
-  <span>Loading Memories</span>
-</div>
+  <!-- Love Story Timeline -->
+  <section class="section timeline-section" id="timeline">
+    <h2>Our Love Story</h2>
+    <div class="timeline">
+      <div class="timeline-item left"><div class="content"><h3>The Day We Met</h3><p>That magical first encounter.</p></div></div>
+      <div class="timeline-item right"><div class="content"><h3>First Conversation</h3><p>Words that started everything.</p></div></div>
+      <div class="timeline-item left"><div class="content"><h3>First Date</h3><p>A night to remember forever.</p></div></div>
+      <div class="timeline-item right"><div class="content"><h3>Special Memories</h3><p>Moments that shaped our journey.</p></div></div>
+      <div class="timeline-item left"><div class="content"><h3>Her Birthday</h3><p>Celebrating the most beautiful soul.</p></div></div>
+    </div>
+  </section>
 
-<div class="hud">
-  <button id="musicToggle">♫</button>
-</div>
+  <!-- Photo Gallery -->
+  <section class="section gallery-section">
+    <h2>Photo Gallery</h2>
+    <div class="gallery">
+      <img src="images/photo1.jpg" alt="Memory 1">
+      <img src="images/photo2.jpg" alt="Memory 2">
+      <img src="images/photo3.jpg" alt="Memory 3">
+      <img src="images/photo4.jpg" alt="Memory 4">
+      <img src="images/photo5.jpg" alt="Memory 5">
+      <img src="images/photo6.jpg" alt="Memory 6">
+    </div>
+  </section>
 
-<canvas id="bg"></canvas>
+  <!-- Reasons Section -->
+  <section class="section reasons">
+    <h2>Reasons Why I Love You</h2>
+    <div class="reason-cards">
+      <div class="card">Your Smile</div>
+      <div class="card">Your Kindness</div>
+      <div class="card">Your Laugh</div>
+      <div class="card">Your Support</div>
+      <div class="card">Your Personality</div>
+      <div class="card">Your Heart</div>
+      <div class="card">Your Dreams</div>
+    </div>
+  </section>
 
-<section class="panel hero">
-  <h1>Rishab & Priyanka</h1>
-  <p class="typed"></p>
-</section>
+  <!-- Memory Carousel -->
+  <section class="section memory-carousel">
+    <h2>Our Cinematic Memories</h2>
+    <div class="carousel">
+      <div class="memory-card">Memory Scene 1</div>
+      <div class="memory-card">Memory Scene 2</div>
+      <div class="memory-card">Memory Scene 3</div>
+    </div>
+  </section>
 
-<section class="panel story">
-  <h2>The Beginning</h2>
-  <p>Some connections don’t fade. They evolve.</p>
-</section>
+  <!-- Love Letter -->
+  <section class="section love-letter">
+    <h2>My Love Letter To You</h2>
+    <div class="letter" id="letter">
+      <!-- Animated typing effect will go here -->
+    </div>
+  </section>
 
-<section class="panel timeline">
-  <h2>Our Timeline</h2>
-  <div class="cards">
-    <div class="card">First Message</div>
-    <div class="card">First Fight</div>
-    <div class="card">Distance</div>
-    <div class="card">Still Us</div>
-  </div>
-</section>
+  <!-- Interactive Heart -->
+  <section class="section heart-section">
+    <h2>Click The Heart ❤️</h2>
+    <div class="big-heart" id="bigHeart"></div>
+    <div class="special-message" id="specialMessage"></div>
+  </section>
 
-<section class="panel gallery">
-  <h2>Memories</h2>
-  <div class="memory-grid">
-    <div></div><div></div><div></div>
-  </div>
-</section>
+  <!-- Future Dreams -->
+  <section class="section future-dreams">
+    <h2>Our Future Dreams</h2>
+    <div class="dream-cards">
+      <div class="dream-card">Travel Together</div>
+      <div class="dream-card">Build Memories</div>
+      <div class="dream-card">Celebrate Milestones</div>
+      <div class="dream-card">Achieve Goals</div>
+    </div>
+  </section>
 
-<section class="panel emotion">
-  <h2>No Matter The Distance</h2>
-</section>
+  <!-- Favorite Songs -->
+  <section class="section songs">
+    <h2>Our Favorite Songs</h2>
+    <div class="music-player">
+      <div class="album-art"></div>
+      <div class="controls">
+        <button>Play</button>
+        <button>Pause</button>
+      </div>
+      <div class="playlist">
+        <p>Song 1</p>
+        <p>Song 2</p>
+        <p>Song 3</p>
+      </div>
+    </div>
+  </section>
 
-<section class="panel end">
-  <h2>This Story Never Ends</h2>
-</section>
+  <!-- Surprise Message -->
+  <section class="section surprise">
+    <h2>Surprise Gift 🎁</h2>
+    <div class="gift-box" id="giftBox"></div>
+    <div class="gift-message" id="giftMessage"></div>
+  </section>
 
-<script src="script.js"></script>
+  <!-- Ending Section -->
+  <section class="section ending">
+    <h1>I Would Choose You Again And Again</h1>
+    <button class="btn" onclick="showFinal()">Forever & Always ❤️</button>
+    <div id="finalMessage"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">Made With Endless Love ❤️</footer>
+
+  <!-- JS file link -->
+  <script src="script.js"></script>
 </body>
 </html>
